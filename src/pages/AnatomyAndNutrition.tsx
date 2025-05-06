@@ -1,4 +1,3 @@
-
 import { useState } from 'react';
 import Header from '@/components/Header';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
@@ -6,7 +5,7 @@ import { Card } from '@/components/ui/card';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 import { Badge } from '@/components/ui/badge';
 import { AnatomyPart, BodyPart, Injury, NutritionItem } from '@/lib/types';
-import { Apple, Body, Bone, Bandage, Heart, Medicine, Utensils, Salad } from 'lucide-react';
+import { Apple, Bandage, Bone, Utensils, Salad } from 'lucide-react';
 
 // بيانات تشريح الجسم (ستكون في ملف البيانات لاحقاً)
 const anatomyParts: AnatomyPart[] = [
@@ -154,17 +153,17 @@ const AnatomyAndNutrition = () => {
   const getIcon = (itemType: string) => {
     switch (itemType) {
       case 'anatomy':
-        return <Body className="h-5 w-5 ml-1" />;
+        return <Bone className="h-5 w-5 ml-1" />;
       case 'bone':
         return <Bone className="h-5 w-5 ml-1" />;
       case 'injury':
         return <Bandage className="h-5 w-5 ml-1" />;
       case 'treatment':
-        return <Medicine className="h-5 w-5 ml-1" />;
+        return <Bandage className="h-5 w-5 ml-1" />;
       case 'nutrition':
         return <Utensils className="h-5 w-5 ml-1" />;
       case 'benefits':
-        return <Heart className="h-5 w-5 ml-1" />;
+        return <Apple className="h-5 w-5 ml-1" />;
       case 'food':
         return <Salad className="h-5 w-5 ml-1" />;
       case 'apple':

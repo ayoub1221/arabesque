@@ -70,4 +70,5 @@ export interface NutritionItem {
   imageUrl?: string;
 }
 
-export type ToastVariant = "default" | "destructive" | "success"; // إضافة "success" كنوع مقبول
+// Update the ToastVariant type to include "success"
+export type ToastVariant = "default" | "destructive" | "success";
