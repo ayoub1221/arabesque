@@ -4,7 +4,7 @@ import Header from '@/components/Header';
 import ScheduleCalendar from '@/components/ScheduleCalendar';
 import PoseVisualizer from '@/components/PoseVisualizer';
 import { defaultScheduledExercises } from '@/lib/data';
-import { ScheduledExercise } from '@/lib/types';
+import { ScheduledExercise, ToastVariant } from '@/lib/types';
 import { useToast } from '@/hooks/use-toast';
 
 const Index = () => {
@@ -31,7 +31,7 @@ const Index = () => {
       toast({
         title: exercise.completed ? "تم إلغاء إكمال التمرين" : "تم إكمال التمرين بنجاح!",
         description: exercise.name,
-        variant: exercise.completed ? "default" : "success",
+        variant: exercise.completed ? "default" : "success" as ToastVariant,
       });
     }
   };

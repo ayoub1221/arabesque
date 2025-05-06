@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 import Header from '@/components/Header';
 import ExerciseCard from '@/components/ExerciseCard';
 import { defaultExercises } from '@/lib/data';
-import { Exercise, BodyPart, ExerciseLevel } from '@/lib/types';
+import { Exercise, BodyPart, ExerciseLevel, ToastVariant } from '@/lib/types';
 import { 
   Select, 
   SelectContent, 
@@ -70,7 +70,7 @@ const Exercises = () => {
       toast({
         title: "تمت إضافة التمرين",
         description: `تمت إضافة ${selectedExercise.name} إلى جدولك`,
-        variant: "success",
+        variant: "success" as ToastVariant,
       });
       setOpenDialog(false);
     }
