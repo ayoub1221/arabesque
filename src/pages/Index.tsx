@@ -3,17 +3,23 @@ import { useState, useEffect } from 'react';
 import Header from '@/components/Header';
 import ScheduleCalendar from '@/components/ScheduleCalendar';
 import PoseVisualizer from '@/components/PoseVisualizer';
+import MobileAppInfo from '@/components/MobileAppInfo';
 import { defaultScheduledExercises } from '@/lib/data';
 import { ScheduledExercise, ToastVariant } from '@/lib/types';
 import { useToast } from '@/hooks/use-toast';
+import { Capacitor } from '@capacitor/core';
 
 const Index = () => {
   const { toast } = useToast();
   const [scheduledExercises, setScheduledExercises] = useState<ScheduledExercise[]>([]);
+  const [isNativePlatform, setIsNativePlatform] = useState(false);
   
   useEffect(() => {
     // في التطبيق الحقيقي، يمكن استدعاء API أو قراءة البيانات من قاعدة بيانات
     setScheduledExercises(defaultScheduledExercises);
+    
+    // التحقق إذا كان التطبيق يعمل على منصة جوال أصلية
+    setIsNativePlatform(Capacitor.isNativePlatform());
   }, []);
   
   // إكمال التمرين
@@ -51,6 +57,8 @@ const Index = () => {
             نظم وتتبع تمارينك للحصول على أفضل النتائج
           </p>
         </div>
+        
+        {isNativePlatform && <MobileAppInfo />}
         
         {/* قسم المحتوى الرئيسي */}
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
